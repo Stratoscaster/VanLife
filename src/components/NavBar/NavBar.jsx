@@ -11,7 +11,9 @@ export default function NavBar() {
 
 					<nav>
 						<Link to={"/"}>Home</Link>
+						<Link to={'/vans'}>Vans</Link>
 						<Link to={"/about"}>About</Link>
+
 					</nav>
 				</div>
 			</span>

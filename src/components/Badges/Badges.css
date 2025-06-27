@@ -1,0 +1,69 @@
+
+.badge-container {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.badge {
+	flex-basis: 100px;
+	height: 30px;
+	padding-inline: 10px;
+	padding-block: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	font-weight: 600;
+}
+
+/* Badge Shapes */
+.square {
+	border-radius: 4px;
+}
+
+.pill {
+	border-radius: 12px;
+}
+
+/* Badge Colors */
+.gray {
+	background-color: #F3F4F6;
+	color: #1F2937;
+}
+
+.red {
+	background-color: #FEE2E2;
+	color: #991B1B;
+}
+
+.yellow {
+	background-color: #FEF3C7;
+	color: #92400E;
+}
+
+.green {
+	background-color: #D1FAE5;
+	color: #065F46;
+}
+
+.blue {
+	background-color: #DBEAFE;
+	color: #1E40AF;
+}
+
+.indigo {
+	background-color: #E0E7FF;
+	color: #3730A3;
+}
+
+.purple {
+	background-color: #EDE9FE;
+	color: #5B21B6;
+}
+
+.pink {
+	background-color: #FCE7F3;
+	color: #9D174D;
+}
+

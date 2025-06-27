@@ -4,7 +4,6 @@ import NavBar from "./NavBar/NavBar.jsx";
 export default function About() {
 	return (
 		<div>
-			<NavBar/>
 			<p>About page</p>
 		</div>
 	);
