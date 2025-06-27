@@ -23,6 +23,7 @@ nav {
 	background-color: #FFF7ED;
 	height: 100px;
 	padding-inline: 20px;
+	/*max-width: 100%;*/
 }
 
 
@@ -30,8 +31,6 @@ nav {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	height: 100%;
-	width: 100%;
 }
 
 .navbar-container-centering > span > h1 {
