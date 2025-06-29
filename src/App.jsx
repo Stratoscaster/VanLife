@@ -6,7 +6,7 @@ import {createGlobalStyle} from "styled-components"
 import './server.js'
 import Vans from "./components/Vans/Vans.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
-
+import VanDetail from "./components/Vans/VanDetail/VanDetail.jsx";
 const GlobalStyle = createGlobalStyle`
   body, .react-root {
     padding: 0;
@@ -28,6 +28,8 @@ function App() {
 						   element={<About/>}/>
 					<Route path={"/vans"}
 						   element={<Vans/>}/>
+					<Route path={"/vans/:id"}
+						   element={<VanDetail/>}/>
 				</Routes>
 				<GlobalStyle/>
 			</BrowserRouter>
