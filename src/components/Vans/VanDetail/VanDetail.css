@@ -1,11 +1,92 @@
-.van-container {
+/* Van Detail Styling */
+
+.VDetail__container {
+	display: flex;
+	flex-direction: column;
+	width: 60vw;
+	background-color: unset;
+	gap: 10px;
 
 }
 
-.back-link-container {
-	padding-block:20px;
+.VDetail__name-container {
+	font-size: 32px;
+	font-weight: 600;
+	margin-top: 15px;
 }
 
-.detail-page-container {
+.VDetail__image-container {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 5px;
+	margin-bottom: 50px;
+}
 
+.VDetail__price-container {
+	font-size: 18px;
+}
+
+.VDetail__price-container > span {
+	font-weight: 700;
+	font-size: 22px;
+}
+
+.VDetail__description-container > p {
+	margin-top: 0;
+}
+
+.VDetail__rent-button-container {
+
+}
+
+.VDetail__rent-button {
+	width: 100%;
+	height: 200%;
+	background-color: #FF8C38;
+	border-color: rgba(0,0,0,0);
+	border-radius: 5px;
+}
+
+/* Link Styling */
+
+.VDetail__back-link-container {
+	padding-block: 20px;
+	width: 175px;
+}
+
+.VDetail__back-link-content {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.VDetail__back-link-content > div {
+	display: grid;
+	grid-template-columns: 1fr 3.5fr;
+	grid-template-rows: 1fr;
+	justify-items: center;
+	align-items: center;
+	gap: 0;
+}
+
+.VDetail__back-link-content > div > p {
+	padding: 0;
+	margin: 0;
+	text-decoration: underline;
+}
+
+/* Page Alignment */
+.VDetail__detail-page-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.VDetail__detail-items-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
 }
