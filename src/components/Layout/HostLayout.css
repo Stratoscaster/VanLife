@@ -1,0 +1,14 @@
+.HLAYOUT__navbar-container {
+	min-width: 100vw;
+	min-height: 30px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.HLAYOUT__nav-items-container {
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+}
