@@ -1,0 +1,15 @@
+.HOME__page-container {
+	min-width: 100vw;
+	min-height: 120vh;
+	background-color: #11212e;
+	overflow: hidden;
+}
+
+
+.HOME__background-image {
+	object-fit: cover;
+	position: relative;
+	left: -450px;
+	width: 2500px;
+}
+
