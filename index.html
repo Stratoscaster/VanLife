@@ -9,11 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vite + React</title>
     <style>
-      html, body {
-        /*min-width: 100%;*/
+      html {
         box-sizing: border-box;
         padding: 0;
         margin: 0;
+        min-height: 100vw;
+      }
+
+
+      .ROOT__body-style {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        min-height: 100vw;
       }
 
       .react-root {
@@ -22,10 +30,11 @@
         width: 100%;
         padding: 0;
         margin: 0;
+        min-height: 100vw;
       }
     </style>
   </head>
-  <body">
+  <body class="ROOT__body-style">
 
     <div id="root" class="react-root" style="padding: 0;"></div>
     <script type="module" src="/src/main.jsx"></script>

@@ -7,6 +7,8 @@ import './server.js'
 import Vans from "./components/Vans/Vans.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import VanDetail from "./components/Vans/VanDetail/VanDetail.jsx";
+import Layout from './components/Layout/Layout.jsx'
+
 const GlobalStyle = createGlobalStyle`
   body, .react-root {
     padding: 0;
@@ -20,16 +22,20 @@ function App() {
 	return (
 		<div className={'app-container'}>
 			<BrowserRouter>
-			<NavBar/>
+
+				{/* Layout Route */}
 				<Routes>
-					<Route path={"/"}
-						   element={<Home/>}/>
-					<Route path={"/about"}
-						   element={<About/>}/>
-					<Route path={"/vans"}
-						   element={<Vans/>}/>
-					<Route path={"/vans/:id"}
-						   element={<VanDetail/>}/>
+					<Route element={<Layout/>}>
+
+						<Route path={"/"}
+							   element={<Home/>}/>
+						<Route path={"/about"}
+							   element={<About/>}/>
+						<Route path={"/vans"}
+							   element={<Vans/>}/>
+						<Route path={"/vans/:id"}
+							   element={<VanDetail/>}/>
+					</Route>
 				</Routes>
 				<GlobalStyle/>
 			</BrowserRouter>
