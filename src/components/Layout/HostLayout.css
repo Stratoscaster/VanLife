@@ -12,3 +12,12 @@
 	flex-direction: row;
 	gap: 30px;
 }
+
+.HLAYOUT__active-link {
+	text-decoration: underline;
+	font-weight: 600;
+}
+
+.HLAYOUT__inactive-link {
+	text-decoration: none;
+}

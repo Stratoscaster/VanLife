@@ -38,13 +38,15 @@ function App() {
 							   element={<About/>}/>
 						<Route path={"/vans"}
 							   element={<Vans/>}/>
-						<Route path={'/host'}
+						{/* Paths relative to /host*/}
+						<Route path={'host'}
 							   element={<HostLayout/>}>
-							<Route path={'/host/income'}
+							{/* /host/income relative path */}
+							<Route path={'income'}
 								   element={<Income/>}/>
-							<Route path={'/host/reviews'}
+							<Route path={'reviews'}
 								   element={<Reviews/>}/>
-							<Route path={'/host/dashboard'}
+							<Route path={'dashboard'}
 								   element={<Dashboard/>}/>
 						</Route>
 						<Route path={"/vans/:id"}
