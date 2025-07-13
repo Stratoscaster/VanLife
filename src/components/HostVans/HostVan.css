@@ -1,0 +1,10 @@
+.HVAN__container {
+	--width: 300px;
+	--height: 75px;
+
+	background-color: white;
+	min-width: var(--width);
+	max-width: var(--width);
+	min-height: var(--height);
+	max-height: var(--height);
+}

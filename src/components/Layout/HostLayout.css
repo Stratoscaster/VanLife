@@ -13,11 +13,23 @@
 	gap: 30px;
 }
 
+
+
 .HLAYOUT__active-link {
 	text-decoration: underline;
-	font-weight: 600;
+	font-weight: bold;
+	color: #161616;
 }
 
 .HLAYOUT__inactive-link {
 	text-decoration: none;
+	font-weight: normal;
+	transition: font-weight;
+	transition-duration: 0.2s;
+
+}
+
+.HLAYOUT__inactive-link:hover {
+	text-decoration: underline;
+
 }

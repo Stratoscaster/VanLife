@@ -10,12 +10,16 @@ export default function HostLayout() {
 		<>
 			<div className={'HLAYOUT__navbar-container'}>
 				<div className={'HLAYOUT__nav-items-container'}>
-					<NavLink to={'/host/dashboard'}
-							 className={getLinkStyling}>
+					<NavLink to={'/host'}
+							 className={getLinkStyling} end>
+						{/* 'end' prop ensures that the NavLink will only be considered 'active' if it exactly
+						 matches the nav url */}
 						Dashboard
 					</NavLink>
 					<NavLink to={'/host/income'}
 							 className={getLinkStyling}> Income < /NavLink>
+					<NavLink to={'/host/vans'}
+							 className={getLinkStyling}> Vans < /NavLink>
 
 					<NavLink to={'/host/reviews'}
 							 className={getLinkStyling}> Reviews < /NavLink>

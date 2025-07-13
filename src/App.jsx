@@ -12,6 +12,8 @@ import HostLayout from "./components/Layout/HostLayout.jsx";
 import Dashboard from "./components/Host/Dashboard.jsx";
 import Income from "./components/Host/Income.jsx";
 import Reviews from "./components/Host/Reviews.jsx";
+import HostVans from "./components/HostVans/HostVans.jsx";
+import HostVanDetail from "./components/HostVans/HostVanDetail/HostVanDetail.jsx";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -32,7 +34,7 @@ function App() {
 				<Routes>
 					<Route element={<Layout/>}>
 
-						<Route path={"/"}
+						<Route index
 							   element={<Home/>}/>
 						<Route path={"/about"}
 							   element={<About/>}/>
@@ -46,7 +48,13 @@ function App() {
 								   element={<Income/>}/>
 							<Route path={'reviews'}
 								   element={<Reviews/>}/>
-							<Route path={'dashboard'}
+							<Route path={'vans'}
+								   element={<HostVans/>}/>
+							<Route path={'vans/:id'}
+								   element={<HostVanDetail/>}/>
+							{/* Making this an 'index' route ensures that it shows in the Outlet of HostLayout by
+							 default at /host */}
+							<Route index
 								   element={<Dashboard/>}/>
 						</Route>
 						<Route path={"/vans/:id"}
