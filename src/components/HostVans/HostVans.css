@@ -9,3 +9,7 @@
 	flex-direction: column;
 	gap: 20px;
 }
+
+.HVANS__flex-columns > h2 {
+    margin-bottom: 0;
+}

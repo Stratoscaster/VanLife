@@ -1,0 +1,135 @@
+.HVD__page_container {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100%;
+    padding-inline: 50px;
+    padding-block: 25px;
+    gap: 20px;
+}
+/* Backlink Styling */
+.HVD__backlink-container {
+    display: flex;
+    justify-content: left;
+}
+
+.HVD__back-link-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.HVD__back-link-content > div {
+    display: grid;
+    grid-template-columns: 1fr 3.5fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 0;
+}
+
+.HVD__back-link-content > div > p {
+    padding: 0;
+    margin: 0;
+    text-decoration: underline;
+}
+
+.HVD__content_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: white;
+    min-width: 600px;
+    max-width: 75vw;
+    padding: 50px;
+}
+
+.HVD__content_header {
+    display: flex;
+    flex-direction: row;
+}
+
+.HVD__header_image_container {
+    width: 250px;
+    height: 250px;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.HVD__header_image_container > img {
+    width: 250px;
+    align-self: center;
+    justify-self: center;
+    height: auto;
+
+    object-fit: scale-down;
+}
+
+.HVD__header_title_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-inline: 25px;
+    padding-block: 30px;
+}
+
+.HVD__header_title_container > h1 {
+    margin-bottom: 0;
+}
+
+.HVD__header_price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.HVD__header_price > h2 {
+    margin: 0;
+}
+
+.HVD__header_price > h3 {
+    font-weight: normal;
+    margin: 0;
+}
+
+.HVD__content_links_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 25px;
+    padding-block: 20px;
+}
+
+.HVD__content_links_container > a {
+    font-size: 18px;
+}
+
+.HLAYOUT__active-link {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #161616;
+}
+
+.HLAYOUT__inactive-link {
+    text-decoration: none;
+    font-weight: normal;
+    transition: font-weight;
+    transition-duration: 0.2s;
+
+}
+
+.HLAYOUT__inactive-link:hover {
+    text-decoration: underline;
+
+}
+
+.HVD__content_outlet_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -7,4 +7,70 @@
 	max-width: var(--width);
 	min-height: var(--height);
 	max-height: var(--height);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+
+    padding-inline: 15px;
+}
+
+.HVAN__image_contain {
+    width: 50px;
+    height: 50px;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.HVAN__image_contain > img {
+    width: 55px;
+    align-self: center;
+    justify-self: center;
+    height: auto;
+
+    object-fit: scale-down;
+}
+
+.HVAN__content_contain {
+    display: flex;
+    flex-direction: row;
+    justify-self: left;
+    align-items: center;
+}
+
+.HVAN__text_contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    justify-items: left;
+
+    padding-left: 15px;
+}
+
+.HVAN__text_contain > h3 {
+    margin: 0;
+    font-size: 14px;
+}
+.HVAN__text_contain > p {
+    margin: 0;
+    font-size: 12px;
+    color: #4D4D4D;
+}
+
+.HVAN__edit_contain {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.HVAN__edit_contain > p {
+    font-size: 10px;
+    color: black;
 }

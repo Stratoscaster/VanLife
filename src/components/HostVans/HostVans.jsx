@@ -33,10 +33,13 @@ export default function HostVans() {
 	console.log(vanElements)
 
 	return (
+        <>
 		<div className={'HVANS__flex-center'}>
 			<div className={'HVANS__flex-columns'}>
+                <h2>Your Listed Vans</h2>
 				{vanElements}
 			</div>
 		</div>
+        </>
 	)
 }
