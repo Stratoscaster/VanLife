@@ -92,7 +92,7 @@ export default function HostVan() {
                                          className={getLinkStyling}> Photos < /NavLink>
                             </div>
                             <div className={'HVD__content_outlet_container'}>
-                                <HostVanDetailContext.Provider value={van}>
+                                <HostVanDetailContext.Provider value={{currentVan: van}}>
                                     <Outlet/>
                                 </HostVanDetailContext.Provider>
                             </div>

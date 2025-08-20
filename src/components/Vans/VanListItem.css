@@ -6,13 +6,14 @@ a {
 .van-container {
 	display: flex;
 	flex-direction: column;
-	width: 300px;
-	height: 400px;
-
+	width: 250px;
+	height: 300px;
+    padding: 25px;
+    background-color: white;
 	font-size: 20px;
 }
 
-/* Van Information */
+/* VanListItem Information */
 .van-info-container {
 	display: flex;
 	flex-direction: row;
@@ -51,7 +52,7 @@ a {
 	line-height: 12px;
 }
 
-/* Van Image */
+/* VanListItem Image */
 .van-image-container {
 	overflow: hidden;
 	display: flex;

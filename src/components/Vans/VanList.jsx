@@ -1,8 +1,8 @@
 import React from "react";
-import './Vans.css'
-import Van from './Van.jsx'
+import './VanList.css'
+import VanListItem from './VanListItem.jsx'
 
-export default function Vans() {
+export default function VanList() {
 	const [vans, setVans] = React.useState([])
 	React.useEffect(() => {
 		fetch('/api/vans').then(response => {
@@ -18,7 +18,7 @@ export default function Vans() {
 
 	for (const van of vans) {
 		vanElements.push(
-			<Van
+			<VanListItem
 				id={van.id}
 				name={van.name}
 				price={van.price}
