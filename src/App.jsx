@@ -12,11 +12,11 @@ import HostLayout from "./components/Layout/HostLayout.jsx";
 import Dashboard from "./components/Host/Dashboard.jsx";
 import Income from "./components/Host/Income.jsx";
 import Reviews from "./components/Host/Reviews.jsx";
-import HostVans from "./components/HostVans/HostVans.jsx";
-import HostVanDetail from "./components/HostVans/HostVanDetail/HostVanDetail.jsx";
-import HostVanDetailsDetails from "./components/HostVans/HostVanDetail/HostVanDetailsDetails/HostVanDetailsDetails.jsx";
-import HostVanDetailsPhotos from "./components/HostVans/HostVanDetail/HostVanDetailsPhotos/HostVanDetailsPhotos.jsx";
-import HostVanDetailsPricing from "./components/HostVans/HostVanDetail/HostVanDetailsPricing/HostVanDetailsPricing.jsx";
+import HostVanList from "./components/HostVans/HostVanList.jsx";
+import HostVan from "./components/HostVans/HostVanDetail/HostVan.jsx";
+import HostVanDetailsDetails from "./components/HostVans/HostVanDetail/HostVanDetailsDetails/HostVanDetails.jsx";
+import HostVanPhotos from "./components/HostVans/HostVanDetail/HostVanDetailsPhotos/HostVanPhotos.jsx";
+import HostVanPricing from "./components/HostVans/HostVanDetail/HostVanDetailsPricing/HostVanPricing.jsx";
 const GlobalStyle = createGlobalStyle`
   body, .react-root {
     padding: 0;
@@ -50,16 +50,16 @@ function App() {
 							<Route path={'reviews'}
 								   element={<Reviews/>}/>
 							<Route path={'vans'}
-								   element={<HostVans/>}/>
+								   element={<HostVanList/>}/>
                             {/* Van Detail Routes*/}
 							<Route path={'vans/:id'}
-								   element={<HostVanDetail/>}>
-                                <Route path={''} index
+								   element={<HostVan/>}>
+                                <Route index
                                     element={<HostVanDetailsDetails/>}/>
                                 <Route path={'pricing'}
-                                       element={<HostVanDetailsPricing/>}/>
+                                       element={<HostVanPricing/>}/>
                                 <Route path={'photos'}
-                                       element={<HostVanDetailsPhotos/>}/>
+                                       element={<HostVanPhotos/>}/>
                             </Route>
 							{/* Making this an 'index' route ensures that it shows in the Outlet of HostLayout by
 							 default at /host */}

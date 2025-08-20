@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link, NavLink, Outlet, useParams} from "react-router-dom";
-import './HostVanDetail.css';
+import './HostVan.css';
 import {BsArrowLeft} from "react-icons/bs";
 import VanBadge from "../../Vans/VanBadge/VanBadge.jsx";
 import {RotatingLines} from "react-loader-spinner";
 
 const HostVanDetailContext = React.createContext({});
 
-export default function HostVanDetail() {
-    function getLinkStyling({isActive, isPending, isTransitioning}) {
+export default function HostVan() {
+    function getLinkStyling({isActive, ...rest}) {
         return (isActive) ? 'HLAYOUT__active-link' : 'HLAYOUT__inactive-link';
     }
 
@@ -38,8 +38,8 @@ export default function HostVanDetail() {
         <>
             <div className={'HVD__page_container'}>
                 <div className={'HVD__backlink-container'}>
-                    <Link to={'..'} relative>
-                        {/* 'relative' prop means that the link is relative to path
+                    <Link to={'../'} relative={"path"}>
+                        {/* 'relative="path"' prop means that the link is relative to path
                             structure and not relative to Route hierarchy. */}
                         <div className={'HVD__back-link-content'}>
                             <div>
@@ -80,7 +80,7 @@ export default function HostVanDetail() {
                                 </div>
                             </div>
                             <div className={'HVD__content_links_container'}>
-                                <NavLink to={`./`}
+                                <NavLink to={`.`}
                                          className={getLinkStyling} end>
                                     {/* 'end' prop ensures that the NavLink will only be considered 'active'
                             if it exactly matches the nav url */}

@@ -1,4 +1,4 @@
-import {HostVanDetailContext} from "../HostVanDetail.jsx";
+import {HostVanDetailContext} from "../HostVan.jsx";
 import {useContext} from "react";
 import {titleCaseString} from "../../../../utils/utils.js";
 

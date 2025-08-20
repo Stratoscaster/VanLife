@@ -1,13 +1,13 @@
 import {useContext} from "react";
-import {HostVanDetailContext} from "../HostVanDetail.jsx";
+import {HostVanDetailContext} from "../HostVan.jsx";
 
 
-export default function HostVanDetailsPricing() {
+export default function HostVanPhotos() {
     const {id, name, price, type, description, imageUrl} = useContext(HostVanDetailContext) ?? {};
 
     return (
         <>
-            PRICING
+            PHOTOS
         </>
     )
 }
