@@ -1,47 +1,55 @@
 import React from "react";
+import {useSearchParams} from "react-router-dom";
 import './VanList.css'
 import VanListItem from './VanListItem.jsx'
 
 export default function VanList() {
-	const [vans, setVans] = React.useState([])
-	React.useEffect(() => {
-		fetch('/api/vans').then(response => {
-			response.json().then(
-				body => {
-					setVans(body.vans)
-				}
-			)
-		}).catch(err => console.error(err))
-	}, [])
+    const [vans, setVans] = React.useState([])
+    const [searchParams, setSearchParams] = useSearchParams()
 
-	const vanElements = [];
+    const typeFilter = searchParams.get('type');
+    console.log('typeFilter:', typeFilter);
 
-	for (const van of vans) {
-		vanElements.push(
-			<VanListItem
-				id={van.id}
-				name={van.name}
-				price={van.price}
-				description={van.description}
-				imageUrl={van.imageUrl}
-				type={van.type}
-				key={van.id}/>
-		)
-	}
+    React.useEffect(() => {
+        fetch('/api/vans').then(response => {
+            response.json().then(
+                body => {
+                    setVans(body.vans)
+                }
+            )
+        }).catch(err => console.error(err))
+    }, [])
 
-	return (
-		<>
+    const vanElements = [];
+    const filteredVans = vans.filter(van => {
+        return (!typeFilter || van.type.toLowerCase() === typeFilter.toLowerCase())
+    });
+    for (const van of filteredVans) {
+        vanElements.push(
+            <VanListItem
+                id={van.id}
+                name={van.name}
+                price={van.price}
+                description={van.description}
+                imageUrl={van.imageUrl}
+                type={van.type}
+                key={van.id}/>
+        )
+    }
 
-			<div className={'vans-page-container'}>
-				<div className={'vans-list-container'}>
-					<div>
-						<h1>Explore our van options</h1>
-					</div>
-					<div className={"vans-list-grid"}>
-						{vanElements}
-					</div>
-				</div>
-			</div>
-		</>
-	)
+    return (
+        <>
+
+            <div className={'vans-page-container'}>
+                <div className={'vans-list-container'}>
+                    <div>
+                        <h1>Explore our van options</h1>
+                    </div>
+                    <div className={"vans-list-grid"}>
+                        {vanElements}
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }
