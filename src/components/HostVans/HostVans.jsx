@@ -30,8 +30,6 @@ export default function HostVans() {
 		)
 	}
 
-	console.log(vanElements)
-
 	return (
         <>
 		<div className={'HVANS__flex-center'}>
