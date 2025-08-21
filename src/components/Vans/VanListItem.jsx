@@ -1,10 +1,10 @@
 import React from "react";
-import './Van.css'
+import './VanListItem.css'
 import VanBadge from "./VanBadge/VanBadge.jsx";
 import {titleCaseWord} from "../../utils/utils.js";
 import {Link} from "react-router-dom";
 
-export default function Van({id, name, price, description, imageUrl, type}) {
+export default function VanListItem({id, name, price, description, imageUrl, type}) {
 	type = titleCaseWord(type)
 
 	return (

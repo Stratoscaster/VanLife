@@ -4,7 +4,7 @@ import About from "./components/About.jsx";
 import Home from './components/Home.jsx';
 import {createGlobalStyle} from "styled-components"
 import './server.js'
-import Vans from "./components/Vans/Vans.jsx";
+import VanList from "./components/Vans/VanList.jsx";
 import VanDetail from "./components/Vans/VanDetail/VanDetail.jsx";
 import Layout from './components/Layout/Layout.jsx'
 
@@ -40,7 +40,7 @@ function App() {
 						<Route path={"/about"}
 							   element={<About/>}/>
 						<Route path={"/vans"}
-							   element={<Vans/>}/>
+							   element={<VanList/>}/>
 						{/* Paths relative to /host*/}
 						<Route path={'host'}
 							   element={<HostLayout/>}>
@@ -51,7 +51,7 @@ function App() {
 								   element={<Reviews/>}/>
 							<Route path={'vans'}
 								   element={<HostVanList/>}/>
-                            {/* Van Detail Routes*/}
+                            {/* VanListItem Detail Routes*/}
 							<Route path={'vans/:id'}
 								   element={<HostVan/>}>
                                 <Route index

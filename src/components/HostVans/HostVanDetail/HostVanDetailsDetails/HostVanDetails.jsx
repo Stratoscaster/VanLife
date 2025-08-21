@@ -3,7 +3,7 @@ import {useContext} from "react";
 import {titleCaseString} from "../../../../utils/utils.js";
 
 export default function HostVanDetails() {
-    const {id, name, price, type, description, imageUrl} = useContext(HostVanDetailContext) ?? {};
+    const {id, name, price, type, description, imageUrl} = useContext(HostVanDetailContext).currentVan ?? {};
     return (
         <>
             <div>

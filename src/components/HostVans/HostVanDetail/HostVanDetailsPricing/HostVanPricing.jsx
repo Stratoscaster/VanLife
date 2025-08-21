@@ -3,11 +3,16 @@ import {HostVanDetailContext} from "../HostVan.jsx";
 
 
 export default function HostVanPricing() {
-    const {id, name, price, type, description, imageUrl} = useContext(HostVanDetailContext) ?? {};
+    const {id, name, price, type, description, imageUrl} = useContext(HostVanDetailContext).currentVan ?? {};
 
     return (
         <>
-            PRICING
+            { price &&
+                <>
+                <h4>Current Pricing:</h4>
+                    ${price}/day
+                </>
+            }
         </>
     )
 }
