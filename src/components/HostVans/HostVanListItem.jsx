@@ -3,7 +3,7 @@ import './HostVanListItem.css';
 import {Link} from 'react-router-dom';
 export default function HostVanListItem({id, name, price, imageUrl}) {
 	return (
-		<Link to={`/host/vans/${id}`}>
+		<Link to={`${id}`}>
 			<div className={'HVAN__container'}>
 				<div className={'HVAN__content_contain'}>
                     <div className={'HVAN__image_contain'}>

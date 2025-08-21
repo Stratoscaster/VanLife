@@ -8,7 +8,7 @@ export default function VanListItem({id, name, price, description, imageUrl, typ
 	type = titleCaseWord(type)
 
 	return (
-		<Link to={`/vans/${id}`}>
+		<Link to={`${id}`}>
 			<div className={"van-container"}>
 				<div className={"van-image-container"}>
 					<img src={imageUrl}/>
