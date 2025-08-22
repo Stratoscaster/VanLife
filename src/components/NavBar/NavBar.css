@@ -3,17 +3,20 @@ nav > a {
 	font-weight: 600;
 	text-decoration: none;
 	color: #4D4D4D;
+
+    display: flex;
 }
 
 nav > a:hover {
 	color: #242424;
+
 }
 
 nav {
 	display: flex;
 	justify-content: right;
+    align-items: center;
 	gap: 20px;
-
 }
 
 .navbar-container-centering {
