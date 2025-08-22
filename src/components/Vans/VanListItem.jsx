@@ -4,11 +4,11 @@ import VanBadge from "./VanBadge/VanBadge.jsx";
 import {titleCaseWord} from "../../utils/utils.js";
 import {Link} from "react-router-dom";
 
-export default function VanListItem({id, name, price, description, imageUrl, type}) {
+export default function VanListItem({id, name, price, description, imageUrl, type, search}) {
 	type = titleCaseWord(type)
 
 	return (
-		<Link to={`/vans/${id}`}>
+		<Link to={`${id}`} state={search}>
 			<div className={"van-container"}>
 				<div className={"van-image-container"}>
 					<img src={imageUrl}/>

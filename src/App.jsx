@@ -17,64 +17,67 @@ import HostVan from "./components/HostVans/HostVanDetail/HostVan.jsx";
 import HostVanDetailsDetails from "./components/HostVans/HostVanDetail/HostVanDetailsDetails/HostVanDetails.jsx";
 import HostVanPhotos from "./components/HostVans/HostVanDetail/HostVanDetailsPhotos/HostVanPhotos.jsx";
 import HostVanPricing from "./components/HostVans/HostVanDetail/HostVanDetailsPricing/HostVanPricing.jsx";
+import NotFoundSplat from "./components/NotFoundSplat/NotFoundSplat.jsx";
+
 const GlobalStyle = createGlobalStyle`
-  body, .react-root {
-    padding: 0;
-    margin: 0;
-    min-width: 100%;
-  }
+    body, .react-root {
+        padding: 0;
+        margin: 0;
+        min-width: 100%;
+    }
 `
 
 function App() {
 
-	return (
-		<div className={'app-container'}>
-			<BrowserRouter>
+    return (
+        <div className={'app-container'}>
+            <BrowserRouter>
 
-				{/* Layout Route */}
-				<Routes>
-					<Route element={<Layout/>}>
+                {/* Layout Route */}
+                <Routes>
+                    <Route element={<Layout/>}>
+                        <Route path={'*'} element={<NotFoundSplat/>}/>
 
-						<Route index
-							   element={<Home/>}/>
-						<Route path={"/about"}
-							   element={<About/>}/>
-						<Route path={"/vans"}
-							   element={<VanList/>}/>
-						{/* Paths relative to /host*/}
-						<Route path={'host'}
-							   element={<HostLayout/>}>
-							{/* /host/income relative path */}
-							<Route path={'income'}
-								   element={<Income/>}/>
-							<Route path={'reviews'}
-								   element={<Reviews/>}/>
-							<Route path={'vans'}
-								   element={<HostVanList/>}/>
+                        <Route index
+                               element={<Home/>}/>
+                        <Route path={"/about"}
+                               element={<About/>}/>
+                        <Route path={"/vans"}
+                               element={<VanList/>}/>
+                        {/* Paths relative to /host*/}
+                        <Route path={'host'}
+                               element={<HostLayout/>}>
+                            {/* /host/income relative path */}
+                            <Route path={'income'}
+                                   element={<Income/>}/>
+                            <Route path={'reviews'}
+                                   element={<Reviews/>}/>
+                            <Route path={'vans'}
+                                   element={<HostVanList/>}/>
                             {/* VanListItem Detail Routes*/}
-							<Route path={'vans/:id'}
-								   element={<HostVan/>}>
+                            <Route path={'vans/:id'}
+                                   element={<HostVan/>}>
                                 <Route index
-                                    element={<HostVanDetailsDetails/>}/>
+                                       element={<HostVanDetailsDetails/>}/>
                                 <Route path={'pricing'}
                                        element={<HostVanPricing/>}/>
                                 <Route path={'photos'}
                                        element={<HostVanPhotos/>}/>
                             </Route>
-							{/* Making this an 'index' route ensures that it shows in the Outlet of HostLayout by
+                            {/* Making this an 'index' route ensures that it shows in the Outlet of HostLayout by
 							 default at /host */}
-							<Route index
-								   element={<Dashboard/>}/>
-						</Route>
-						<Route path={"/vans/:id"}
-							   element={<VanDetail/>}/>
-					</Route>
-				</Routes>
-				<GlobalStyle/>
-			</BrowserRouter>
-		</div>
+                            <Route index
+                                   element={<Dashboard/>}/>
+                        </Route>
+                        <Route path={"/vans/:id"}
+                               element={<VanDetail/>}/>
+                    </Route>
+                </Routes>
+                <GlobalStyle/>
+            </BrowserRouter>
+        </div>
 
-	)
+    )
 }
 
 export default App

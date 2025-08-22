@@ -1,8 +1,9 @@
 import React from 'react';
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import './VanDetail.css'
 import {BsArrowLeft} from "react-icons/bs";
 import VanBadge from "../VanBadge/VanBadge.jsx";
+import {titleCaseString} from "../../../utils/utils.js";
 
 export default function VanDetail() {
 	// Get the params from the Link that led to this VanDetail
@@ -10,6 +11,8 @@ export default function VanDetail() {
 	console.log(JSON.stringify(params, null, 2))
 	const id = params.id;
 	const [van, setVan] = React.useState({})
+    const location = useLocation()
+    console.log('location:', location);
 
 	// Retrieve van detail using fetch if id changes
 	React.useEffect(() => {
@@ -26,17 +29,21 @@ export default function VanDetail() {
 	}, [id])
 	const {name, price, description, imageUrl, type} = van
 
+    // Check for a previous search in the state
+    const previousSearch = '?' + location.state?.search || '';
+
 
 	return (
 		<div className={'VDetail__detail-page-container'}>
 			<div className={'VDetail__detail-items-container'}>
 				<div className={'VDetail__back-link-container'}>
-					<Link to={'/vans'}>
+                    {/* Include the filters from location state that was stored when clicking on the VanListItem */}
+					<Link to={`/vans${previousSearch}`}>
 						<div className={'VDetail__back-link-content'}>
 							<div>
 								<BsArrowLeft color={'gray'}/>
 								<p>
-									Back to all vans
+									Back to {titleCaseString(location.state?.type || 'All')} Vans
 								</p>
 							</div>
 						</div>

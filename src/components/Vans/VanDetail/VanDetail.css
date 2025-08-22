@@ -52,23 +52,25 @@
 /* Link Styling */
 
 .VDetail__back-link-container {
-	padding-block: 20px;
-	width: 175px;
+	width: 300px;
+	padding-block: 30px;
+    padding-inline: 15px;
+    justify-content: left;
 }
 
 .VDetail__back-link-content {
 	display: flex;
 	flex-direction: column;
-	padding: 10px;
+    justify-self: left;
 }
 
 .VDetail__back-link-content > div {
 	display: grid;
-	grid-template-columns: 1fr 3.5fr;
+	grid-template-columns: 1fr 20fr;
 	grid-template-rows: 1fr;
-	justify-items: center;
+	justify-items: left;
 	align-items: center;
-	gap: 0;
+	gap: 20px;
 }
 
 .VDetail__back-link-content > div > p {
