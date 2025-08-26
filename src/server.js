@@ -1,9 +1,10 @@
 import {createServer, Model} from "miragejs"
-
-
+import {Response} from "miragejs";
+import {sha512} from 'js-sha512';
 createServer({
     models: {
         vans: Model,
+        users: Model
     },
 
     seeds(server) {
@@ -61,14 +62,17 @@ createServer({
             type: "rugged",
             hostId: "123"
         })
+        server.create("user", { id: "123", email: "b@b.com", password: sha512("p123"), name: "Bob" })
     },
 
     routes() {
         this.namespace = "api"
-        this.logging = false
+        this.logging = true
         this.timing = 250; // The amount of time that each request should take (ms)
 
         this.get("/vans", (schema, request) => {
+            // TEMPORARY ERROR THROW TO TEST ERROR HANDLING
+            // return new Response(400, {}, {error: 'Failed to fetch Vans'});
             return schema.vans.all()
         })
 
@@ -86,6 +90,22 @@ createServer({
             // Hard-code the hostId for now
             const id = request.params.id
             return schema.vans.where({id, hostId: "123"})
+        })
+
+        this.post('/login', (schema, request) => {
+            let {email, password } = JSON.parse(request.requestBody);
+            password = sha512(password);
+            // Some rudimentary hashing to simulate actual hashing done on a server
+            const foundUser = schema.users.findBy({email, password});
+
+            if (!foundUser) {
+                return new Response(401, {}, {message: "Username or password is incorrect."});
+            }
+
+            return {
+                user: {email: foundUser.email},
+                token: "Here's some tokens for the arcade machine."
+            }
         })
     }
 })

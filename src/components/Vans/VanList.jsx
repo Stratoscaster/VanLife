@@ -5,6 +5,7 @@ import VanListItem from './VanListItem.jsx'
 import {fetchVans} from "../../api.js";
 import {RotatingLines} from "react-loader-spinner";
 
+
 export default function VanList() {
     const [vans, setVans] = React.useState([])
     const [isLoading, setIsLoading] = React.useState(true);
@@ -13,18 +14,27 @@ export default function VanList() {
     const typeFilter = searchParams.get('type');
     console.log('typeFilter:', typeFilter);
 
+    let [fetchError, setFetchError] = React.useState(null);
+
     React.useEffect(() => {
         fetchVans().then(fetchedVans => {
             // noinspection JSCheckFunctionSignatures
             setVans(fetchedVans);
-        }).catch(err => console.log(err)).finally(() => setIsLoading(false));
+        }).catch(err => {
+            console.error(err, err.stack);
+            setFetchError(err.message);
+        }).finally(() => setIsLoading(false));
+
     }, []);
 
     const vanElements = [];
-    const filteredVans = vans.filter(van => {
+    const filteredVans = vans?.filter(van => {
+        if (!van) {
+            return false;
+        }
         return (!typeFilter || van.type.toLowerCase() === typeFilter.toLowerCase())
     });
-    for (const van of filteredVans) {
+    for (const van of filteredVans ?? []) {
         vanElements.push(
             <VanListItem
                 id={van.id}
@@ -38,16 +48,16 @@ export default function VanList() {
         )
     }
 
-    function genNewSearchParamString(key, value) {
-        //     Can be used to generate query strings for Links manually
-        const sp = new URLSearchParams(searchParams)
-        if (value === null) {
-            sp.delete(key);
-        } else {
-            sp.set(key, value);
-        }
-        return `?${sp.toString()}`; // Return query string with prepended ? symbol
-    }
+    // function genNewSearchParamString(key, value) {
+    //     //     Can be used to generate query strings for Links manually
+    //     const sp = new URLSearchParams(searchParams)
+    //     if (value === null) {
+    //         sp.delete(key);
+    //     } else {
+    //         sp.set(key, value);
+    //     }
+    //     return `?${sp.toString()}`; // Return query string with prepended ? symbol
+    // }
 
     function handleFilterChange(key, value) {
         // This one is an exception to state callback - you can make changes to the original value & don't have to make a copy.
@@ -131,7 +141,9 @@ export default function VanList() {
                                                 {vanElements}
                                             </div>
                                             :
-                                            <h3>No results.</h3>
+                                            // aria-live assertive so that it says the error / no results
+                                            // before announcing other page elements for screen readers
+                                            <h3 aria-live={'assertive'}>{fetchError ? fetchError : 'No results.'}</h3>
                                     }
                                 </>
                         }

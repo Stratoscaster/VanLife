@@ -18,6 +18,8 @@ import HostVanDetailsDetails from "./components/HostVans/HostVanDetail/HostVanDe
 import HostVanPhotos from "./components/HostVans/HostVanDetail/HostVanDetailsPhotos/HostVanPhotos.jsx";
 import HostVanPricing from "./components/HostVans/HostVanDetail/HostVanDetailsPricing/HostVanPricing.jsx";
 import NotFoundSplat from "./components/NotFoundSplat/NotFoundSplat.jsx";
+import Login from "./components/Login/Login.jsx";
+import AuthRequired from "./components/Layout/AuthRequired.jsx";
 
 const GlobalStyle = createGlobalStyle`
     body, .react-root {
@@ -37,7 +39,7 @@ function App() {
                 <Routes>
                     <Route element={<Layout/>}>
                         <Route path={'*'} element={<NotFoundSplat/>}/>
-
+                        <Route path={'/login'} element={<Login/>}/>
                         <Route index
                                element={<Home/>}/>
                         <Route path={"/about"}
@@ -45,29 +47,30 @@ function App() {
                         <Route path={"/vans"}
                                element={<VanList/>}/>
                         {/* Paths relative to /host*/}
-                        <Route path={'host'}
-                               element={<HostLayout/>}>
-                            {/* /host/income relative path */}
-                            <Route path={'income'}
-                                   element={<Income/>}/>
-                            <Route path={'reviews'}
-                                   element={<Reviews/>}/>
-                            <Route path={'vans'}
-                                   element={<HostVanList/>}/>
-                            {/* VanListItem Detail Routes*/}
-                            <Route path={'vans/:id'}
-                                   element={<HostVan/>}>
-                                <Route index
-                                       element={<HostVanDetailsDetails/>}/>
-                                <Route path={'pricing'}
-                                       element={<HostVanPricing/>}/>
-                                <Route path={'photos'}
-                                       element={<HostVanPhotos/>}/>
-                            </Route>
-                            {/* Making this an 'index' route ensures that it shows in the Outlet of HostLayout by
+                        <Route element={<AuthRequired/>}>
+                            <Route path={'host'} element={<HostLayout/>}>
+                                {/* /host/income relative path */}
+                                <Route path={'income'}
+                                       element={<Income/>}/>
+                                <Route path={'reviews'}
+                                       element={<Reviews/>}/>
+                                <Route path={'vans'}
+                                       element={<HostVanList/>}/>
+                                {/* VanListItem Detail Routes*/}
+                                <Route path={'vans/:id'}
+                                       element={<HostVan/>}>
+                                    <Route index
+                                           element={<HostVanDetailsDetails/>}/>
+                                    <Route path={'pricing'}
+                                           element={<HostVanPricing/>}/>
+                                    <Route path={'photos'}
+                                           element={<HostVanPhotos/>}/>
+                                </Route>
+                                {/* Making this an 'index' route ensures that it shows in the Outlet of HostLayout by
 							 default at /host */}
-                            <Route index
-                                   element={<Dashboard/>}/>
+                                <Route index
+                                       element={<Dashboard/>}/>
+                            </Route>
                         </Route>
                         <Route path={"/vans/:id"}
                                element={<VanDetail/>}/>
