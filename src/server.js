@@ -99,7 +99,7 @@ createServer({
             const foundUser = schema.users.findBy({email, password});
 
             if (!foundUser) {
-                return new Response(401, {}, {message: "Username or password is incorrect.'"});
+                return new Response(401, {}, {message: "Username or password is incorrect."});
             }
 
             return {
