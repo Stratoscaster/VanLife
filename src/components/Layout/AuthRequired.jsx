@@ -7,8 +7,9 @@ export default function AuthRequired() {
     const authenticated = localStorage.getItem('token');
 
     if (!authenticated) {
+        const loginRedirect = location.pathname;
         return <Navigate to="/login"
-                         state={{message: 'You must log in first.'}}
+                         state={{message: 'You must log in first.', loginRedirect}}
                          replace={true}/>;
     }
 
