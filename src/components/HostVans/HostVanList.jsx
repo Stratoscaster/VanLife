@@ -17,7 +17,11 @@ export default function HostVanList() {
                     }
                 ).catch(err => console.error(err))
             }
-        ).catch(err => console.error(err))
+        ).catch(err => {
+            console.error(err);
+            setIsLoaded(true);
+
+        })
     }, [])
 
     const vanElements = [];

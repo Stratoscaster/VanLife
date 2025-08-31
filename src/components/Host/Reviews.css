@@ -1,2 +1,52 @@
 .REVIEWS__page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-inline: 50px;
+}
+
+.REVIEWS__page-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: left;
+    width: 100%;
+}
+
+.REVIEWS__page-content-container > span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.REVIEWS__bar-chart-list-contain {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    width: 50%;
+    justify-content: left;
+}
+
+.REVIEWS__bar-chart-contain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:300px;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.REVIEWS__bar-chart-contain > p {
+    margin: 5px;
+    display: inline;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+.REVIEWS__bar-chart-progress {
+    width: 200px;
+    flex-grow: 0;
 }
