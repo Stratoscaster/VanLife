@@ -50,3 +50,12 @@
     width: 200px;
     flex-grow: 0;
 }
+
+.REVIEWS__reviews-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.REVIEWS__reviews-container > h2 {
+    text-align: left;
+}
