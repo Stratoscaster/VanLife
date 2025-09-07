@@ -1,0 +1,27 @@
+.VREV__rating-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.VREV__name-date-container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.VREV__name {
+    font-weight: bold;
+    margin-block: 5px;
+
+}
+
+.VREV__date {
+    font-weight: normal;
+    margin-block: 5px;
+    color: #8b8b8b;
+}
+
+.VREV__text {
+    margin-bottom: 0;
+}

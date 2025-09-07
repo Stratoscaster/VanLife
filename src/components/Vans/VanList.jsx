@@ -18,6 +18,7 @@ export default function VanList() {
 
     React.useEffect(() => {
         fetchVans().then(fetchedVans => {
+            console.log('fetchedVans', JSON.stringify(fetchedVans, null, 2));
             // noinspection JSCheckFunctionSignatures
             setVans(fetchedVans);
         }).catch(err => {

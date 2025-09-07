@@ -4,6 +4,7 @@ import './HostVan.css';
 import {BsArrowLeft} from "react-icons/bs";
 import VanBadge from "../../Vans/VanBadge/VanBadge.jsx";
 import {RotatingLines} from "react-loader-spinner";
+import {getVan} from "../../../api.js";
 
 const HostVanDetailContext = React.createContext({});
 
@@ -18,11 +19,9 @@ export default function HostVan() {
     const [isLoaded, setIsLoaded] = React.useState(false);
     React.useEffect(() => {
         setIsLoaded(false);
-        fetch(`/api/vans/${id}`).then(response => {
-            response.json().then(data => {
-                setVan(data.vans)
-                setIsLoaded(true);
-            }).catch(err => console.error(err));
+        getVan(id).then(vanData => {
+            setVan(vanData)
+            setIsLoaded(true);
         }).catch(err => console.error(err));
     }, [id]);
 

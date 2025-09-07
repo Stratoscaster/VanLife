@@ -4,6 +4,7 @@ import './VanDetail.css'
 import {BsArrowLeft} from "react-icons/bs";
 import VanBadge from "../VanBadge/VanBadge.jsx";
 import {titleCaseString} from "../../../utils/utils.js";
+import {getVan} from "../../../api.js";
 
 export default function VanDetail() {
 	// Get the params from the Link that led to this VanDetail
@@ -16,16 +17,9 @@ export default function VanDetail() {
 
 	// Retrieve van detail using fetch if id changes
 	React.useEffect(() => {
-		fetch(`/api/vans/${id}`).then(response => {
-			response.json().then(data => {
-					setVan(data.vans)
-				}
-			).catch(error => {
-				console.error(error)
-			})
-		}).catch(error => {
-			console.error(error)
-		})
+		getVan(id).then(vanData => {
+            setVan(vanData)
+        });
 	}, [id])
 	const {name, price, description, imageUrl, type} = van
 
