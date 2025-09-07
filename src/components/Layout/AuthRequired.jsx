@@ -3,7 +3,7 @@ import {Navigate, Outlet, useLocation} from 'react-router-dom';
 
 export default function AuthRequired() {
     const location = useLocation();
-    console.log('State: ' + location?.state?.token);
+    // console.log('State: ' + location?.state?.token);
     const authenticated = localStorage.getItem('token');
 
     if (!authenticated) {

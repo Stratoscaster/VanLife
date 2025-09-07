@@ -1,4 +1,3 @@
-
 function createReviews(server) {
     server.create('review', {
         id: "1",

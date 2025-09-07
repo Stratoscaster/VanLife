@@ -10,16 +10,18 @@ export default function VanReview({id, name, date, rating, text}) {
     for (let i = 0; i < rating; i++) {
         starElements.push(<Star
             color={'orange'}
+            key={`star-number-${i}`}
         />)
     }
 
     for (let i = 0; i < emptyStars; i++) {
         starElements.push(<StarOutline
             color={'black'}
+            key={`star-blank-number-${i}`}
         />);
     }
     return (
-        <>
+        <div key={`star-${id}`}>
             <div className={'VREV__rating-container'}>
                 {starElements}
             </div>
@@ -28,6 +30,6 @@ export default function VanReview({id, name, date, rating, text}) {
                 <p className={'VREV__date'}>{date}</p>
             </div>
             <p className={'VREV__text'}>{text}</p>
-        </>
+        </div>
     )
 }

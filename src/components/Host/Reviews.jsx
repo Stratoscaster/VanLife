@@ -4,26 +4,24 @@ import Meter from '../../utils/Meter.jsx';
 import VanReview from "../VanReview/VanReview.jsx";
 import {RotatingLines} from "react-loader-spinner";
 import {IoIosStar as Star} from "react-icons/io";
+import {getReviews} from "../../api.js";
+
 export default function Reviews() {
     const [reviews, setReviews] = React.useState([]);
     const [isLoaded, setIsLoaded] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState(null);
     React.useEffect(() => {
-        fetch('/api/host/reviews').then(
-            response => {
-                response.json().then(
-                    body => {
-                        setReviews(body.reviews);
-                        setErrorMessage(null);
-                    }
-                ).catch(err => {
-                    console.error(err);
-                    setErrorMessage('Could not load vans. Try again later.')
-                }).finally(() => setIsLoaded(true));
+        getReviews('123').then(
+            fetchedReviews => {
+                // console.log('fetchedReviews', JSON.stringify(fetchedReviews, null, 2));
+                setReviews(fetchedReviews);
+                setErrorMessage(null);
             }
         ).catch(err => {
             console.error(err);
             setErrorMessage('Could not load vans. Try again later.')
+        }).finally(() => {
+            setIsLoaded(true);
         })
     }, [])
 
@@ -47,7 +45,7 @@ export default function Reviews() {
             value: ratingPercentage
         };
     }
-    console.log('ratingPercentages: ' + JSON.stringify(ratingPercentages, null, 2));
+    // console.log('ratingPercentages: ' + JSON.stringify(ratingPercentages, null, 2));
 
     // Reviews
     const reviewElements = [];
@@ -60,7 +58,8 @@ export default function Reviews() {
             text={review.text}
             key={review.id}
         />)
-        reviewElements.push(<hr width={'80%'} align={'left'} color={'lightgray'} style={{marginBlock: '20px'}}/>)
+        reviewElements.push(<hr width={'80%'} align={'left'} color={'lightgray'} style={{marginBlock: '20px'}}
+                                key={`review-hr-${review.id}`}/>)
     }
 
     const ratingBarCharts = ratingPercentages.map((ratingPercentage) => {
@@ -102,14 +101,21 @@ export default function Reviews() {
                     :
                     <div className={'REVIEWS__page-content-container'}>
                         <h1>Your Reviews</h1>
-                        <span><h1>{ratingAverage.toFixed(1)}</h1><Star color={'orange'} size={'32px'}/><p>overall rating</p></span>
-                        <div className={'REVIEWS__bar-chart-list-contain'}>
-                            {ratingBarCharts}
-                        </div>
-                        <div className={'REVIEWS__reviews-container'}>
-                            <h2>Reviews {reviews ? `(${reviews.length})` : ''}</h2>
-                            {reviewElements}
-                        </div>
+                        {(reviewElements && reviewElements.length > 0) && !errorMessage ?
+                            <>
+                        <span><h1>{ratingAverage.toFixed(1)}</h1><Star color={'orange'}
+                                                                       size={'32px'}/><p>overall rating</p></span>
+                                <div className={'REVIEWS__bar-chart-list-contain'}>
+                                    {ratingBarCharts}
+                                </div>
+                                <div className={'REVIEWS__reviews-container'}>
+                                    <h2>Reviews {reviews ? `(${reviews.length})` : ''}</h2>
+                                    {reviewElements}
+                                </div>
+                            </>
+                            :
+                            <h3 aria-live={'assertive'}>{errorMessage ? errorMessage : 'No results.'}</h3>
+                        }
                     </div>
             }
         </div>

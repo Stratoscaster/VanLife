@@ -24,10 +24,10 @@ createServer({
         this.namespace = "api"
         this.logging = true
         this.timing = 250; // The amount of time that each request should take (ms)
+        // Allow Firestore requests to go through
+        this.passthrough('https://firestore.googleapis.com/**');
 
         this.get("/vans", (schema, request) => {
-            // TEMPORARY ERROR THROW TO TEST ERROR HANDLING
-            // return new Response(400, {}, {error: 'Failed to fetch Vans'});
             return schema.vans.all()
         })
 

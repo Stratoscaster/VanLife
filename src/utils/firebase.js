@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import {getFirestore} from 'firebase/firestore/lite';
 import getFirebaseConfig from "./firebaseCredentials.js";
 // Recommended: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -7,9 +8,14 @@ import getFirebaseConfig from "./firebaseCredentials.js";
 // Initialize Firebase
 let app = null;
 
-export default function getApp() {
+export function getApp() {
     if (!app) {
         app = initializeApp(getFirebaseConfig());
     }
     return app;
 }
+
+export default function getFirestoreDB() {
+    return getFirestore(getApp());
+}
+
